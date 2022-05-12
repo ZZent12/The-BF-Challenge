@@ -1,10 +1,9 @@
 from flask import Flask, render_template, redirect, url_for, request
-from Random_Base64 import get_rand_str
 
 
 def Main():
     app = Flask(__name__)
-    app.secret_key = get_rand_str()
+    app.secret_key = "HAigsggirp"
 
     @app.route("/")
     def index():
