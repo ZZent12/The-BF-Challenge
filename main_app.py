@@ -1,10 +1,9 @@
 from flask import Flask, render_template, redirect, url_for, request
 
 app = Flask(__name__)
-@app.route("/")
-def index():
-    return redirect(url_for("backstory"))
 
+
+@app.route("/")
 @app.route("/backstory")
 def backstory():
     return render_template("backstory.html", nav_back="/", nav_next="/principles")
