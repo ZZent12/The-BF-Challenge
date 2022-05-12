@@ -6,9 +6,6 @@ BF Loops
 
 {% block main %}
     <div class="container-title">
-        <center><h2>UNDER CONSTRUCTION</h2></center>
-    </div>
-    <div class="container-title">
         <center><h2>How loops work in Brainfuck</h2></center>
     </div>
     <div class="container-vertical">
@@ -40,10 +37,59 @@ BF Loops
             +[[>++<-]>]
         </p>
 
-        <div class="container-subtitle">
-            <center><h3>+[+]</h3></center>
+        <p>
+            Some of these programs would technically stop because once we hit the limit of 255 and then try to add 1 to it anyways
+            the value will wrap back around to 0, so when the program we are looking at adds up to 255 then tries to go to 256
+            the value would be set back down to 0 and then because it is at zero the check fails and the loop is skipped. This wrapping
+            has the same effect on the tape as well. So if we have a tape that is 5 cells long and try to go right 6 times we would
+            end up at the first cell or if we tried to go left at the first cell then we would end up at the 5th cell
+        </p>
+        <div class="nested-image">
+            <image src="{{ url_for('static', filename='Loops/First_Graphic.gif')}}" class="img"></image>
         </div>
+        <p>
+            We can see in this program we start out by adding 1. This is common in all of these loops because to start the loop we 
+            need the cell to be above 0. Now, after that this program is just asking "is the value above 0, if so we will add 1 to it 
+            and ask again". When put into words like it is obvious that this would loop forever (if it wasn't for the pheonomon mentioned above) 
+            because we can never get to 0 by just adding
+        </p>
+        
+        <div class="nested-image">
+            <image src="{{ url_for('static', filename='Loops/Second_Graphic.gif')}}" class="img"></image>
+        </div>
+        <p>
+            Some people might have thought that this program would end once the pointer is moved to the right. The reason that this 
+            does not happen is becuase this the above 0 check only happens after all the commands inbetween the brackets. So what happens is 
+            the loop moves right 1 and then adds 1 to that cell and then check if that cell is greater than 1. This program will also 
+            technically stop because once the first cell hits 255, the next time the program loops back to the first cell and adds 1 
+            the value will be set to 0 and the loop will stop. This will leave every other cell at 255.
+        </p>
 
+        <div class="nested-image">
+            <image src="{{ url_for('static', filename='Loops/Third_Graphic.gif')}}" class="img"></image>
+        </div>
+        <p>
+            This is basically the same program from above. The main diffrence from this one and the other one is that 
+            there is no possible way that it to stop on its own even with the overflow. This is because we always make sure the 
+            previous cell is 0. 
+        </p>
+        <div class="nested-image">
+            <image src="{{ url_for('static', filename='Loops/Forth_Graphic.gif')}}" class="img"></image>
+        </div>
+        <p>
+            This final program is a little more complicated than the rest. The program starts at 1 and doubles the value of the cell. 
+            You might have noticed that there is a loop inside the main loop. This is compleatly valid and can make for some fun interactions, 
+            but also tends to make it harder to understand the program. To break down these loops within loops programs, i find that it is generally best 
+            to start from the lowest level and working up from there, so let's try that with this program. we will start at the [>++<-] loop of 
+            the program. We can see from a quick glance at this what it does is double the value of the cell it started on, so after we define 
+            the prorpus of the deeper loop (also known as a nested loop) we look one level up and try to define the prorpus of that, 
+            so now we are looking at [[>++<-]>]. Now we can break down what is happening. We start by doubling the current value and then 
+            we move onto the doubled value and restart the loop.
+        </p>
+
+        <p>
+            I hope the visuliles and more indepth explaination help you more understand loops in Brainfuck.
+        </p>
 
     </div>
 {% endblock %}
