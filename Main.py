@@ -3,7 +3,6 @@ from flask import Flask, render_template, redirect, url_for, request
 
 def Main():
     app = Flask(__name__)
-    app.secret_key = "HAigsggirp"
 
     @app.route("/")
     def index():
