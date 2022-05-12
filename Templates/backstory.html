@@ -1,0 +1,30 @@
+{% extends "index.html" %}
+
+{% block subtitle %}
+The Backstory
+{% endblock %}
+
+{% block main %}
+    <div class="container-title">
+        <center><h1>The Brainfuck Coding Challenge</h1></center>
+    </div>
+    <div class="container-subtitle">
+        <h3>The Backstory of the Challenge</h3>
+    </div>
+    <div class="container-vertical">
+        <p>
+            This little website is here to chronicle my experience while doing this challenge and the addon to the challenge that I gave myself as well as trying to explain my code to anyone interested.
+            The challenge that I attempted is a challenge that is commonly recommended for intermediate programmers; it was to create an interpreter for the esoteric language known as Brainfuck.
+            Created in 1993 by Urban Muller, Brainfuck was an attempt to beat the current ongoing challenge to create the programming language with the smallest possible compiler
+            He achieved this goal by making Brainfuck, the original compiler is only 240 bytes and even that would be brought down by him to under 200 bytes later.
+            To try to put into perspective how insane that is, 1 kilobyte is 8000 bits and he made a language with a compiler of less than 1/4th that, weighing in at 1920 bits.
+            Making a programming language that is this small leads to a lot of things being cut. This will be elaborated on later when we go through how the language works.
+            I chose to do a common coding challenge because being a self taught programmer, I really do not know how good I am at it or where I stand in a scale of beginner to experienced, 
+            and since this was a common intermediate challenge I could use this to try and gauge my abilities. So what is the main goal of this project?
+            It is to create an interpreter for the Brainfuck language, with an interpreter meaning I can run the Brainfuck file through this new program 
+            I create and get the output of the program as if it was an executable. <a href="/compVinter" class="info-link">For a more in depth explanation of the diffrence between 
+            interpreted and compiled programs click me.</a>
+            I will be coding the interpreter in Python and will not be using any modules.
+        </p>
+    </div>
+{% endblock %}

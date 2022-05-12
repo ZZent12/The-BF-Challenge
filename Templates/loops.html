@@ -1,0 +1,46 @@
+{% extends "notes_base.html" %}
+
+{% block subtitle %}
+BF Loops
+{% endblock %}
+
+{% block main %}
+    <div class="container-title">
+        <center><h1>How loops work in Brainfuck</h1></center>
+    </div>
+    <div class="container-vertical">
+
+        <p>
+            On this page we will see a few programs and step through their process to try
+            and determine the end value if it exists. There will be a graphic and 2 buttons to step forward and backward 
+            so we can visulize the end state after each command. In these examples the tape will be 5 cells long
+        </p>
+
+        <div class="container-subtitle">
+            <center><h1>Easy Infinite programs (the not practical ones)</h1></center>
+        </div>
+
+        <p>
+            In this section we will break down a few easy programs and expain why they are infinite. 
+            The programs we will go over is
+        </p>
+        <p>
+            +[+]
+        </p>
+        <p>
+            +[>+]
+        </p>
+        <p>
+            +[->+]
+        </p>
+        <p>
+            +[[>++<-]>]
+        </p>
+
+        <div class="container-subtitle">
+            <center><h3>+[+]</h3></center>
+        </div>
+
+
+    </div>
+{% endblock %}

@@ -1,0 +1,116 @@
+{% extends "notes_base.html" %}
+
+{% block subtitle %}
+Compiled vs interperated
+{% endblock %}
+
+{% block main %}
+    <div class="container-title">
+        <center><h3>The differences between Compiled programs VS Interpreted programs</h3></center>
+    </div>
+    <div class="container-vertical">
+        <p>
+            If you are confused about the difference between a program (or programming language) being compiled or interpreted, that is fine
+            because it is blurry if you do not normally work in computer science. The main difference between the two is that the compiled program
+            will become an executable (generally a file with the .exe extension) that you run to get your desired output, while the interpreted program
+            will be fed into another program which will spit back out the desired output
+        </p>
+        <div class="nested-image">
+            <image src="{{ url_for('static', filename='ComInt/ComInt_Graphic.png')}}" class="img">
+        </div>
+        <p>
+            From the graphic above it might seem like interpreted programs are just flat out better because it is simpler,
+            you just put the program into an interpreter and you get the output, no having to make a new file and running that to get the output.
+            The truth is that each way has their pros and cons and is sometimes better than the alternative
+        </p>
+        <div class="container-title">
+            <h5>COMPILED</h5>
+        </div>
+        <div class="container">
+            <div class="container-vertical">
+                <div class="container-subtitle"><h5>
+                    PROS
+                </h5></div>
+                    <p>
+                        The program will generally run faster than interpreted programs
+                    </p>
+                    <p>
+                        You do not need the compiler to run the program after it has been made into an executable
+                    </p>
+                    <p>
+                        The program will generally be smaller than interpreted programs
+                    </p>
+            </div>
+            <div class="container-vertical">
+                <div class="container-subtitle"><h5>
+                    CONS
+                </h5></div>
+                <p>
+                    It takes time to compile the program
+                </p>
+                <p>
+                    The executable will only work on the operating system that it was made on
+                </p>
+                <p>
+                    It is generally harder to debug the program
+                </p>
+            </div>
+        </div>
+        <div class="container-title"><h5>
+            BETTER USED IN
+        </h5></div>
+        <p>
+            platform specific applications
+        </p>
+        <p>
+            applications that needs to run fast
+        </p>
+        <div class="container-title">
+            <h5>INTERPRETED</h5>
+        </div>
+        <div class="container">
+            <div class="container-vertical">
+                <div class="container-subtitle"><h5>
+                    PROS
+                </h5></div>
+                    <p>
+                        The interpreter does not care about the operating system
+                    </p>
+                    <p>
+                        It is easier to debug and test the program
+                    </p>
+                    <p>
+                        You do not need to recompile the program for a change to go into effect
+                    </p>
+            </div>
+            <div class="container-vertical">
+                <div class="container-subtitle"><h5>
+                    CONS
+                </h5></div>
+                <p>
+                    It will generally run slower than compiled programs
+                </p>
+                <p>
+                    You need the interpreter to run the program
+                </p>
+                <p>
+                    file sizes are generally bigger than compiled programs
+                </p>
+            </div>
+        </div>
+        <div class="container-title"><h5>
+            BETTER USED IN
+        </h5></div>
+        <p>
+            multi platform appiclations
+        </p>
+        <p>
+            applications that have changing requierments
+        </p>
+    </div>
+    <div class="container">
+        <p>
+            I hope this has helped define the diffrence between these two things.
+        </p>
+    </div>
+{% endblock %}

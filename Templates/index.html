@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}
+The Brainfuck Challenge - {% block subtitle %}{% endblock %}
+{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ url_for('static', filename='index_style.css')}}">
+{% endblock %}
+
+{% block content %}
+    <nav class="navbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <span class="nav-header">
+                    SECTIONS
+                </span>
+            </li>
+            <li class="nav-item">
+                <a href="/backstory" class="nav-link">
+                    <b>1</b>
+                    <span class="link-text">Section 1: The Backstory of the Challenge</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/principles" class="nav-link">
+                    <b>2</b>
+                    <span class="link-text">Section 2: The Brainfuck Basics</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/defining" class="nav-link">
+                    <b>3</b>
+                    <span class="link-text">Section 3: Defining the Problems </span>
+                </a>
+            </li>
+
+        </ul>
+    </nav>
+    <main>
+        <div class="background">
+        {% block main %}{% endblock %}
+        
+        <div class="container-navigation">
+            <div class="navigation-back">
+                <a class="navigation-link" href={{nav_back}}>Go to Last Section</a>
+            </div>
+            <div class="navigation-next">
+            <a class="navigation-link" href={{nav_next}}>Go to Next Section</a>
+            </div>
+        </div>
+        </div>
+    </main>
+
+{% endblock %}

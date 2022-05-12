@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+
+{% block subtitle %}
+The BF Principles
+{% endblock %}
+
+{% block main %}
+    <div class="container-subtitle">
+        <h3>The Basics of Brainfuck</h3>
+    </div>
+            
+    <p>
+        Brainfuck has a very small compiler as we discussed. This lead to a very minimalist language with only 8 accepted characters
+        and the rest being ignored. Every Brainfuck program starts with an arbitrary number of cells (chosen by the programmer).
+        These cells hold a value between 0 and 255 with every cell starting at 0. After the number of cells is chosen we line them all
+        up into what is known as the tape. The final part of the program is a pointer that can move across the tape and increment/decrement
+        the value in the cell by 1. We can do these 4 actions with 4 of the 8 characters. I will call this set of 4 characters the basic commands
+        The first 2 of the basic commands will move the pointer across the tape. The symbol to move the pointer 1 right is ">" and the symbol
+        to move the pointer 1 left is "<". The other 2 basic commands will increase or decrease the cell value that is at the pointer. To increase and
+        decrease Brainfuck uses "+" and "-" respectively. The final 4 useable characters are the advanced commands which deals with input and output
+        along with handling loops. The I/O commands are "," and ".". The "," takes care of the input portion by storing the current cell value in the pointer
+        (and overwriting any current value in there) and the output portion is taken care by the "." by sending the stored value to the standard output
+        (normally the command line). loops are dealt with the "[” and "]" symbols each used to start and stop the loop respectively.
+        The basic logic of these commands is that when a "[" is seen then checks if the cell value at the pointer is greater than 0. If it is then
+        do what is inside the loop then repeat if the cell value is still above 0. If the cell value is 0 then skip everything inside the loop and
+        continue the program. <a class="info-link" href="/loops">If you are still confused then click on me for some examples.</a>
+        </p>
+
+{% endblock %}
