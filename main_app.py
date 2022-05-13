@@ -2,6 +2,7 @@ from flask import Flask, render_template, redirect, url_for
 
 app = Flask(__name__)
 
+
 @app.route("/")
 @app.route("/backstory")
 def backstory():
@@ -22,8 +23,9 @@ def loops():
 def defining():
     return render_template("defining.html", nav_back="/principles", nav_next="/")
 
-    
-
+@app.route("/mistaken_identity")
+def mistaken_identity():
+    return render_template("mistaken_identity.html", back_to="/defining")
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -5,6 +5,9 @@
     --main-background: #404040;
     --primary-text-color: #999999;
     --secondary-text-color: #dddddd;
+    --navbar-secondary-background: #1E1E1E;
+    --code-color: #36a3f0;
+    --code-comment-color: #00ffa6;
 }   
 
 body{
@@ -69,6 +72,21 @@ body::-webkit-scrollbar-thumb{
     font-size: 25;
     align-items: center;
     justify-content: center;
+}
+
+.container-code{
+    display: flex;
+    width: 75%;
+    flex-direction: column;
+    justify-content: left;
+    background: var(--navbar-secondary-background);
+}
+
+.code-comment{
+    color: var(--code-comment-color);
+}
+.code{
+    color: var(--code-color);
 }
 
 .info-link{
