@@ -152,10 +152,12 @@ main {
 }
 
 .code-comment{
+    list-style: none;
     color: var(--code-comment-color);
 }
 
 .code{
+    list-style: none;
     color: var(--code-color);    
 }
 

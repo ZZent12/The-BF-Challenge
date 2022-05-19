@@ -32,6 +32,68 @@ Defining the Problem
     working on this project. The problem being whenever I had a bug in my code I had to ask the question of was it the interpreter that
     messed up or was it the BF source code that was wrong. <a class="info-link" href="/mistaken_identity">For a example of the problem click me</a>
 </p>
-
+<div class="container-subtitle">
+    <center><h3>Part 2 - Creating the Decode process</h3></center>
+</div>
+<p>
+    To start off we should do the more basic things first like creating the pointer, tape, and getting the basic commands to work as intended.
+</p>
+<div class="container-code">
+    <ul class="code">
+        <li>
+            def Decode(file):            
+        </li>
+        <li>
+            &nbsp;&nbsp;&nbsp;&nbsp;Tape = [0 for _ in range(100)]
+        </li>
+        <li>
+            &nbsp;&nbsp;&nbsp;&nbsp;Pointer = 0
+        </li>
+        <li>
+            &nbsp;&nbsp;&nbsp;&nbsp;with open(file, "r") as f:
+        </li>
+        <li>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Script = f.read()
+        </li>
+        <li>
+            &nbsp;&nbsp;&nbsp;&nbsp;for Command in Script:
+        </li>
+        <li>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if Command == "<":
+        </li>
+        <li>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pointer -= 1
+        </li>
+        <li>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif Command == ">":
+        </li>
+        <li>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pointer += 1
+        </li>
+        <li>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif Command == "+":
+        </li>
+        <li>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tape[Pointer] += 1
+        </li>
+        <li>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif Command == "-":
+        </li>
+        <li>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tape[Pointer] -= 1
+        </li>
+    </ul>
+</div>
+<p>
+    This is the code that I came up with to handle the basic commands. It will undoubtedly change as we add in the complex commands,
+    but let me quickly explain what we have so far. It starts with "def Decode(file):", all this does is create a function with the name
+    of "Decode" and it takes an argument (which is a value or values that are use help determine the behavior of a program) that is stored
+    in a variable called file. The next line creates a variable called tape and it is a list of values that are all set to the value 0.
+    The third line will create a variable called Pointer and set its value to 0. We can use these 2 variables together to make the basic commands
+    of Brainfuck. This is achievable because the list data type is an ordered collection of values that allows duplicates and we can get the
+    value of one specific element (item) by telling what number item it is in the list. So if we want to move to the right then we need
+    to add 1 to the current value of the pointer and if we want to move to the left we would subtract 1 from the pointer's value. Then
+    to add or subtract to the cell's value we need to add or subtract 1 from the item that is at the pointer's value.
+</p>
 
 {% endblock %}

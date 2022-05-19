@@ -5,10 +5,6 @@ The Mistaken Error Cause
 {% endblock %}
 
 {% block main %}
-<div class="container-title">
-    <center><h1>UNDER CONSTRUCTION</h1></center>
-</div>
-
 <div class="container-code">
     <ul class="code">
         <li class="code-comment">
@@ -68,7 +64,16 @@ The Mistaken Error Cause
     </ul>
 </div>
 <p>
+    This was a Brainfuck program that I created to output Hello World. I color coded my comments in green and the code in blue. After running 
+    the interpreter a lot of the values were subtracted by what felt like a random amount. After going through the entire decoding process 
+    line by line I found out that there were 6 - commands that were not intended. Look at the code above and see if you can find the 6 - commands. 
+</p>
 
+<p>
+    If you found them then good on you, if not that is fine because it took me a while to find out where these lost commands were.
+    The commands are in the comments I put, thoses dashes in between the letter and cell number were being read as a subtract command.
+    It was many problems like this that plagued the development of this project because it was so hard to decipher whether it was the bf code
+    or the interpreter code that was messing up
 </p>
 
 
