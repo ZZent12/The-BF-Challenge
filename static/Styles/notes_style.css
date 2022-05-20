@@ -83,12 +83,14 @@ body::-webkit-scrollbar-thumb{
 }
 
 .code-comment{
-    list-style: none;
     color: var(--code-comment-color);
 }
 .code{
-    list-style: none;
     color: var(--code-color);
+}
+
+.code-new{
+    color: var(--code-new-color);
 }
 
 .info-link{

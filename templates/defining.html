@@ -39,7 +39,7 @@ Defining the Problem
     To start off we should do the more basic things first like creating the pointer, tape, and getting the basic commands to work as intended.
 </p>
 <div class="container-code">
-    <ul class="code">
+    <ol class="code">
         <li>
             def Decode(file):            
         </li>
@@ -82,7 +82,7 @@ Defining the Problem
         <li>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tape[Pointer] -= 1
         </li>
-    </ul>
+    </ol>
 </div>
 <p>
     This is the code that I came up with to handle the basic commands. It will undoubtedly change as we add in the complex commands,
@@ -93,7 +93,84 @@ Defining the Problem
     of Brainfuck. This is achievable because the list data type is an ordered collection of values that allows duplicates and we can get the
     value of one specific element (item) by telling what number item it is in the list. So if we want to move to the right then we need
     to add 1 to the current value of the pointer and if we want to move to the left we would subtract 1 from the pointer's value. Then
-    to add or subtract to the cell's value we need to add or subtract 1 from the item that is at the pointer's value.
+    to add or subtract to the cell's value we need to add or subtract 1 from the item that is at the pointer's value. Lines 4 through 14 
+    accomplish this. Line 4 is used to open the desired file and line 5 stores the contents of said file in a variable. Line 6 creates a 
+    for loop, this will loop through all the characters in file and with lines 7 through 14 checks what character it is and does the needed action. 
+    This action is shown by the indentation.
 </p>
+
+<p>
+    The next thing we can do is start to set up the start of the input and output system. Lines that are in a light blue are lines that we 
+    added between the last iteration and this new on
+</p>
+<div class="container-code">
+    <ol class="code">
+        <li>
+            def Decode(file):            
+        </li>
+        <li>
+            &nbsp;&nbsp;&nbsp;&nbsp;Tape = [0 for _ in range(100)]
+        </li>
+        <li>
+            &nbsp;&nbsp;&nbsp;&nbsp;Pointer = 0
+        </li>
+        <li class="code-new">
+            &nbsp;&nbsp;&nbsp;&nbsp;Int_Outputs = []
+        </li>
+        <li class="code-new">
+            &nbsp;&nbsp;&nbsp;&nbsp;Pointer_Value = ""
+        </li>
+        <li>
+            &nbsp;&nbsp;&nbsp;&nbsp;with open(file, "r") as f:
+        </li>
+        <li>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Script = f.read()
+        </li>
+        <li>
+            &nbsp;&nbsp;&nbsp;&nbsp;for Command in Script:
+        </li>
+        <li>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if Command == "<":
+        </li>
+        <li>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pointer -= 1
+        </li>
+        <li>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif Command == ">":
+        </li>
+        <li>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pointer += 1
+        </li>
+        <li>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif Command == "+":
+        </li>
+        <li>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tape[Pointer] += 1
+        </li>
+        <li>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif Command == "-":
+        </li>
+        <li>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tape[Pointer] -= 1
+        </li>
+        <li class="code-new">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif Command == ",":
+        </li>
+        <li class="code-new">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pointer_Value = Tape[Pointer]
+        </li>
+        <li class="code-new">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif Command == ".":
+        </li>
+        <li class="code-new">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Int_Outputs.append(Pointer_Value)
+        </li>
+        <li class="code-new">
+            &nbsp;&nbsp;&nbsp;&nbsp;return Int_Outputs
+        </li>
+
+    </ol>
+</div>
+
 
 {% endblock %}
